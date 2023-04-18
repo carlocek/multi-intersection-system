@@ -1,0 +1,197 @@
+{
+   "queues": [
+      {
+         "queueId": "1",
+         "semaphoreId":"1",
+         "initialDistribution": ["1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.3",
+         "serviceRate": "1.1",
+         "size":"30",
+         "inputQueuesId":[],
+         "outputQueuesId":[{"D":"3","W":"1.0"}],
+         "intersectionId":"1",
+         "hasTram":"true"
+      },
+      {
+         "queueId": "2",
+         "semaphoreId":"2",
+         "initialDistribution": ["1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.3",
+         "serviceRate": "1.1",
+         "size":"20",
+         "inputQueuesId":[],
+         "outputQueuesId":[{"D":"3","W":"0.8"},{"D":"uscita","W":"0.2"}],
+         "intersectionId":"1",
+         "hasTram":"true"
+      },
+      {
+         "queueId": "3",
+         "semaphoreId":"3",
+         "initialDistribution": ["1","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.0",
+         "serviceRate": "0.9",
+         "size":"10",
+         "inputQueuesId":["1","2"],
+         "outputQueuesId":[{"D":"uscita","W":"1.0"}],
+         "intersectionId":"2",
+         "hasTram":"true"
+      },
+      {
+         "queueId": "4",
+         "semaphoreId":"4",
+         "initialDistribution": ["1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.1",
+         "serviceRate": "1.1",
+         "size":"30",
+         "inputQueuesId":[],
+         "outputQueuesId":[{"D":"6","W":"0.5"},{"D":"uscita","W":"0.5"}],
+         "intersectionId":"2",
+         "hasTram":"true"
+      },
+      {
+         "queueId": "5",
+         "semaphoreId":"3",
+         "initialDistribution": ["1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.1",
+         "serviceRate": "1.1",
+         "size":"30",
+         "inputQueuesId":[],
+         "outputQueuesId":[{"D":"6","W":"1.0"}],
+         "intersectionId":"2",
+         "hasTram":"false"
+      },
+      {
+         "queueId": "6",
+         "semaphoreId":"1",
+         "initialDistribution": ["1","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.0",
+         "serviceRate": "0.9",
+         "size":"10",
+         "inputQueuesId":["4","5"],
+         "outputQueuesId":[{"D":"uscita","W":"1.0"}],
+         "intersectionId":"1",
+         "hasTram":"false"
+      },
+      {
+         "queueId": "uscita",
+         "semaphoreId":"",
+         "initialDistribution":["1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
+         "poissonArrivalRate": "0.0",
+         "serviceRate": "1",
+         "size":"30",
+         "inputQueuesId":[],
+         "outputQueuesId":[],
+         "intersectionId":[],
+         "hasTram":""
+      }
+      ],
+   
+   "RoadSections":[ 
+      {
+         "roadId": "giuliani",
+         "lenght": "30",
+         "veichleLenght": "2",
+         "minimumDistance": "1",
+         "speedLimit":"50"
+      },
+      {
+         "roadId": "mariti",
+         "lenght": "35",
+         "veichleLenght": "2",
+         "minimumDistance": "1",
+         "speedLimit":"50"
+      },
+      {
+         "roadId": "mariti2",
+         "lenght": "45",
+         "veichleLenght": "2",
+         "minimumDistance": "1",
+         "speedLimit":"50"
+      },
+      {
+         "roadId": "morgagni",
+         "lenght": "20",
+         "veichleLenght": "2",
+         "minimumDistance": "1",
+         "speedLimit":"60"
+      },
+      {
+         "roadId": "morgagni2",
+         "lenght": "20",
+         "veichleLenght": "2",
+         "minimumDistance": "1",
+         "speedLimit":"60"
+      },
+      {
+         "roadId": "emanuele",
+         "lenght": "20",
+         "veichleLenght": "2",
+         "minimumDistance": "1",
+         "speedLimit":"50"
+      }
+      ],
+
+   "Intersections":[
+      {
+         "intersectionId": "1",
+         "lenght": "5",
+         "queues": ["2","6","1"],
+         "queuesSimultaneousGreen": ["1","6"],
+         "sections": ["giuliani","morgagni2","mariti"],
+         "lightPeriod":"220",
+         "tramLines":["tramline 1"]
+      },
+      {
+         "intersectionId": "2",
+         "lenght": "10",
+         "queues": ["4","3","5"],
+         "queuesSimultaneousGreen": ["3","5"],
+         "sections": ["mariti2","emanuele","morgagni"],
+         "lightPeriod":"220",
+         "tramLines":["tramline 2"]
+      }
+      ],
+
+   "TramLines":[
+      {
+         "tramLineId": "tramline 1",
+         "tramTracks":[
+            {
+               "t_name":"bin1",
+               "t_periodTime":"220",
+               "t_phaseTime":"30",
+               "t_delayEFTime":"0",
+               "t_delayLFTime":"120",
+               "t_crosslightAntTime":"5",
+               "t_leavingEFTime":"6",
+               "t_leavingLFTime":"14"
+            }
+            ]  
+      },
+      {
+         "tramLineId": "tramline 2",
+         "tramTracks":[
+            {
+               "t_name":"bin1",
+               "t_periodTime":"220",
+               "t_phaseTime":"0",
+               "t_delayEFTime":"0",
+               "t_delayLFTime":"40",
+               "t_crosslightAntTime":"5",
+               "t_leavingEFTime":"6",
+               "t_leavingLFTime":"14"
+            },
+            {
+               "t_name":"bin2",
+               "t_periodTime":"220",
+               "t_phaseTime":"40",
+               "t_delayEFTime":"0",
+               "t_delayLFTime":"120",
+               "t_crosslightAntTime":"5",
+               "t_leavingEFTime":"6",
+               "t_leavingLFTime":"14"
+            }
+            ]  
+      }
+      ]
+ }
